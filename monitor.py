@@ -1,6 +1,9 @@
 import requests
 import time
 import os
+# Quitar comentarios para correr en local
+# from dotenv import load_dotenv
+# load_dotenv()
 
 # --- Función para obtener precio ---
 
@@ -25,14 +28,15 @@ def send_telegram(message):
 # --- Lista de activos con parámetros ---
 activos = [
     {"symbol": "SOLUSDT", "max": 295, "min": 114},
-    {"symbol": "BTCUSDT", "max": 116700, "min": 107292},
+    {"symbol": "BTCUSDT", "max": 124000, "min": 75000},
     {"symbol": "ETHUSDT", "max": 4490, "min": 4400},
-    {"symbol": "BNBUSDT", "max": 899, "min": 850},
+    {"symbol": "BNBUSDT", "max": 901, "min": 735},
     {"symbol": "XRPUSDT", "max": 3.62, "min": 1.92},
     {"symbol": "ADAUSDT", "max": 1.18, "min": 0.51},
     {"symbol": "DOGEUSDT", "max": 0.43, "min": 0.14},
     {"symbol": "DOTUSDT", "max": 5.35, "min": 3.09},
     {"symbol": "AVAXUSDT", "max": 27, "min": 16},
+    {"symbol": "LTCUSDT", "max": 133, "min": 75},
 ]
 
 # --- Inicio ---
@@ -59,4 +63,4 @@ while True:
         except Exception as e:
             print(f"Error obteniendo {symbol}: {e}")
 
-    time.sleep(60)  # verifica todos los activos cada 10 segundos
+    time.sleep(120)  # verifica todos los activos cada 10 segundos
