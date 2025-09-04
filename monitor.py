@@ -28,7 +28,7 @@ activos = [
     {"symbol": "BTCUSDT", "max": 116700, "min": 107292},
     {"symbol": "ETHUSDT", "max": 4490, "min": 4400},
     {"symbol": "BNBUSDT", "max": 899, "min": 850},
-    {"symbol": "XRPUSDT", "max": 3.62, "min": 1.92},
+    {"symbol": "XRPUSDT", "max": 2.82, "min": 2.80},
     {"symbol": "ADAUSDT", "max": 1.18, "min": 0.51},
     {"symbol": "DOGEUSDT", "max": 0.43, "min": 0.14},
     {"symbol": "DOTUSDT", "max": 5.35, "min": 3.09},
