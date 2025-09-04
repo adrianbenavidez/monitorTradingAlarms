@@ -1,23 +1,61 @@
 import requests
+import time
 import os
 
-# Variables de entorno
+# --- Función para obtener precio ---
+def get_price(symbol):
+    url = f"https://api.binance.com/api/v3/ticker/price?symbol={symbol}"
+    response = requests.get(url).json()
+    return float(response["price"])
+
+
+# --- Configuración de Telegram ---
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 CHAT_ID = os.environ.get("CHAT_ID")
+
 
 def send_telegram(message):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {"chat_id": CHAT_ID, "text": message}
-    r = requests.post(url, data=payload)
-    print("Telegram:", r.text)
+    requests.post(url, data=payload)
 
-def test_binance():
-    url = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
-    r = requests.get(url)
-    print("Binance status:", r.status_code)
-    print("Binance response:", r.text)
-    return r.text
 
-if __name__ == "__main__":
-    resp = test_binance()
-    send_telegram(f"Respuesta Binance: {resp}")
+# --- Lista de activos con parámetros ---
+activos = [
+    {"symbol": "SOLUSDT", "max": 295, "min": 114},
+    {"symbol": "BTCUSDT", "max": 116700, "min": 107292},
+    {"symbol": "ETHUSDT", "max": 4490, "min": 4400},
+    {"symbol": "BNBUSDT", "max": 899, "min": 850},
+    {"symbol": "XRPUSDT", "max": 3.62, "min": 1.92},
+    {"symbol": "ADAUSDT", "max": 1.18, "min": 0.51},
+    {"symbol": "DOGEUSDT", "max": 0.43, "min": 0.14},
+    {"symbol": "DOTUSDT", "max": 5.35, "min": 3.09},
+    {"symbol": "AVAXUSDT", "max": 27, "min": 16},
+]
+
+# --- Inicio ---
+send_telegram("🚨 Monitoreo iniciado para múltiples activos")
+
+# --- Loop principal ---
+while True:
+    for activo in activos:
+        symbol = activo["symbol"]
+        alerta_max = activo["max"]
+        alerta_min = activo["min"]
+
+        try:
+            precio = get_price(symbol)
+            print(f"{symbol} -> {precio}")
+
+            if precio >= alerta_max:
+                send_telegram(
+                    f"🚀 {symbol} alcanzó {precio}, rompió resistencia {alerta_max}")
+            elif precio <= alerta_min:
+                send_telegram(
+                    f"⚠️ {symbol} cayó a {precio}, rompió soporte {alerta_min}")
+
+        except Exception as e:
+            print(f"Error obteniendo {symbol}: {e}")
+
+    time.sleep(60)  # verifica todos los activos cada 10 segundos
+
