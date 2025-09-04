@@ -4,8 +4,8 @@ import os
 from datetime import datetime, timedelta, timezone
 
 # Quitar comentarios para correr en local
-from dotenv import load_dotenv
-load_dotenv()
+#from dotenv import load_dotenv
+#load_dotenv()
 
 # --- Zona horaria fija UTC-3 (Argentina sin horario de verano) ---
 ARG = timezone(timedelta(hours=-3))
