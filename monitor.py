@@ -6,8 +6,6 @@ import os
 # load_dotenv()
 
 # --- Función para obtener precio ---
-
-
 def get_price(symbol):
     url = f"https://api.binance.com/api/v3/ticker/price?symbol={symbol}"
     response = requests.get(url).json()
@@ -64,3 +62,6 @@ while True:
             print(f"Error obteniendo {symbol}: {e}")
 
     time.sleep(120)  # verifica todos los activos cada 10 segundos
+
+
+
