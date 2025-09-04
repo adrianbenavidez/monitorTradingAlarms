@@ -11,8 +11,6 @@ load_dotenv()
 ARG = timezone(timedelta(hours=-3))
 
 # --- Función para obtener precio ---
-
-
 def get_price(symbol):
     url = f"https://api.binance.com/api/v3/ticker/price?symbol={symbol}"
     response = requests.get(url).json()
