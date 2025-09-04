@@ -1,20 +1,26 @@
 import requests
 import time
+import os
 
 # --- Función para obtener precio ---
+
+
 def get_price(symbol):
     url = f"https://api.binance.com/api/v3/ticker/price?symbol={symbol}"
     response = requests.get(url).json()
     return float(response["price"])
 
+
 # --- Configuración de Telegram ---
-TELEGRAM_TOKEN = "8259035204:AAHhSf1LMP8mMKaC70XCa4q0vQ3wUTAspwE"
-CHAT_ID = "6546593725"
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
+CHAT_ID = os.environ.get("CHAT_ID")
+
 
 def send_telegram(message):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {"chat_id": CHAT_ID, "text": message}
     requests.post(url, data=payload)
+
 
 # --- Lista de activos con parámetros ---
 activos = [
@@ -44,9 +50,11 @@ while True:
             print(f"{symbol} -> {precio}")
 
             if precio >= alerta_max:
-                send_telegram(f"🚀 {symbol} alcanzó {precio}, rompió resistencia {alerta_max}")
+                send_telegram(
+                    f"🚀 {symbol} alcanzó {precio}, rompió resistencia {alerta_max}")
             elif precio <= alerta_min:
-                send_telegram(f"⚠️ {symbol} cayó a {precio}, rompió soporte {alerta_min}")
+                send_telegram(
+                    f"⚠️ {symbol} cayó a {precio}, rompió soporte {alerta_min}")
 
         except Exception as e:
             print(f"Error obteniendo {symbol}: {e}")
