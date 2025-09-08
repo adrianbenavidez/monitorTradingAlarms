@@ -64,7 +64,6 @@ activos = [
     {"symbol": "PAXGUSDT", "max": 4000, "min": 3622},
     {"symbol": "PAXGUSDT", "max": 4000, "min": 3620},
     {"symbol": "PAXGUSDT", "max": 4000, "min": 3612},
-    {"symbol": "PAXGUSDT", "max": 4000, "min": 3636},
 ]
 
 # --- Inicio ---
