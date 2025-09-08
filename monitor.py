@@ -48,16 +48,17 @@ def send_telegram(message):
 
 # --- Lista de activos con parámetros ---
 activos = [
-    {"symbol": "SOLUSDT", "max": 295, "min": 114},
-    {"symbol": "BTCUSDT", "max": 124000, "min": 75000},
+    {"symbol": "SOLUSDT", "max": 295, "min": 153},
+    {"symbol": "BTCUSDT", "max": 124000, "min": 93000},
     {"symbol": "ETHUSDT", "max": 4820, "min": 4291},
-    {"symbol": "BNBUSDT", "max": 901, "min": 735},
+    {"symbol": "BNBUSDT", "max": 901, "min": 820},
     {"symbol": "XRPUSDT", "max": 3.62, "min": 1.92},
     {"symbol": "ADAUSDT", "max": 1.18, "min": 0.51},
     {"symbol": "DOGEUSDT", "max": 0.43, "min": 0.14},
     {"symbol": "DOTUSDT", "max": 5.35, "min": 3.09},
-    {"symbol": "AVAXUSDT", "max": 27, "min": 16},
+    {"symbol": "AVAXUSDT", "max": 27, "min": 17},
     {"symbol": "LTCUSDT", "max": 133, "min": 75},
+    {"symbol": "XAUUSDT", "max": 4000, "min": 3628},
     {"symbol": "XAUUSDT", "max": 4000, "min": 3628},
     {"symbol": "XAUUSDT", "max": 4000, "min": 3622},
     {"symbol": "XAUUSDT", "max": 4000, "min": 3620},
