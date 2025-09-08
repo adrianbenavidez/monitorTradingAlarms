@@ -2,15 +2,17 @@ import requests
 import time
 import os
 from datetime import datetime, timedelta, timezone
-from dotenv import load_dotenv
 
-load_dotenv()
+
+# Quitar comentarios para correr en local
+#from dotenv import load_dotenv
+#load_dotenv()
+
 
 # --- Zona horaria fija UTC-3 (Argentina sin horario de verano) ---
 ARG = timezone(timedelta(hours=-3))
 
 
-# --- Funciones auxiliares ---
 def get_price(symbol):
     url = f"https://api.binance.com/api/v3/ticker/price?symbol={symbol}"
     response = requests.get(url).json()
@@ -58,11 +60,11 @@ activos = [
     {"symbol": "DOTUSDT", "max": 5.35, "min": 3.09},
     {"symbol": "AVAXUSDT", "max": 27, "min": 17},
     {"symbol": "LTCUSDT", "max": 133, "min": 75},
-    {"symbol": "XAUUSDT", "max": 4000, "min": 3628},
-    {"symbol": "XAUUSDT", "max": 4000, "min": 3628},
-    {"symbol": "XAUUSDT", "max": 4000, "min": 3622},
-    {"symbol": "XAUUSDT", "max": 4000, "min": 3620},
-    {"symbol": "XAUUSDT", "max": 4000, "min": 3612},
+    {"symbol": "PAXGUSDT", "max": 4000, "min": 3628},
+    {"symbol": "PAXGUSDT", "max": 4000, "min": 3622},
+    {"symbol": "PAXGUSDT", "max": 4000, "min": 3620},
+    {"symbol": "PAXGUSDT", "max": 4000, "min": 3612},
+    {"symbol": "PAXGUSDT", "max": 4000, "min": 3636},
 ]
 
 # --- Inicio ---
