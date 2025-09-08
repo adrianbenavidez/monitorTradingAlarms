@@ -52,7 +52,7 @@ def send_telegram(message):
 activos = [
     {"symbol": "SOLUSDT", "max": 295, "min": 153},
     {"symbol": "BTCUSDT", "max": 124000, "min": 93000},
-    {"symbol": "ETHUSDT", "max": 4820, "min": 4291},
+    {"symbol": "ETHUSDT", "max": 4820, "min": 4100},
     {"symbol": "BNBUSDT", "max": 901, "min": 820},
     {"symbol": "XRPUSDT", "max": 3.62, "min": 1.92},
     {"symbol": "ADAUSDT", "max": 1.18, "min": 0.51},
