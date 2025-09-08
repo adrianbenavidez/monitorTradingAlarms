@@ -2,15 +2,17 @@ import requests
 import time
 import os
 from datetime import datetime, timedelta, timezone
-from dotenv import load_dotenv
 
-load_dotenv()
+
+# Quitar comentarios para correr en local
+#from dotenv import load_dotenv
+#load_dotenv()
+
 
 # --- Zona horaria fija UTC-3 (Argentina sin horario de verano) ---
 ARG = timezone(timedelta(hours=-3))
 
 
-# --- Funciones auxiliares ---
 def get_price(symbol):
     url = f"https://api.binance.com/api/v3/ticker/price?symbol={symbol}"
     response = requests.get(url).json()
