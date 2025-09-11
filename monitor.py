@@ -60,10 +60,7 @@ activos = [
     {"symbol": "DOTUSDT", "max": 5.35, "min": 3.09},
     {"symbol": "AVAXUSDT", "max": 39, "min": 17},
     {"symbol": "LTCUSDT", "max": 133, "min": 75},
-    {"symbol": "PAXGUSDT", "max": 4000, "min": 3628},
-    {"symbol": "PAXGUSDT", "max": 4000, "min": 3622},
-    {"symbol": "PAXGUSDT", "max": 4000, "min": 3620},
-    {"symbol": "PAXGUSDT", "max": 4000, "min": 3612},
+    {"symbol": "PAXGUSDT", "max": 4000, "min": 3614},
 ]
 
 # --- Inicio ---
